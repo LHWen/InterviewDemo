@@ -1,0 +1,52 @@
+//
+//  PrefixHeader.pch
+//  InterviewDemo
+//
+//  Created by LHWen on 2017/10/17.
+//  Copyright © 2017年 LHWen. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/**
+ *  配置 pch 文件，新建创建一个 .pch文件
+ *  1. 在Build Settings 中搜索 Prefix Header
+ *  2. 导入文件路径在 Prefix Header 中 (InterviewDemo/PrefixPCH/PrefixHeader.pch)
+ */
+
+/** ---------------------------- 导入 ------------------------------- */
+
+#define kSCREENWIDTH  [UIScreen mainScreen].bounds.size.width    // 获取屏幕宽度
+#define kSCREENHEIGHT [UIScreen mainScreen].bounds.size.height   // 获取屏幕高度
+
+#import "SVPShowAlertView.h"     // 加载工具类
+
+#import "CreateViewFactory.h"    // 创建lable and ImageView 视图
+
+#import "Logger.h"               // 打印信息 工具
+
+#import "NSString+Utils.h"       // 空字符判断（string 分类） 工具
+
+#import "Utility.h"              // 十六进制颜色使用 以及 生成图片 工具
+
+#import "AppColors.h"            // 颜色 宏定义
+
+#import "UserDefaultsHelper.h"   // 本地存储工具类
+
+#import "URLEncode.h"            // 网络请求含有中文，需要使用该工具编码
+
+#import "DateUtils.h"            // 日期格式 工具
+
+#import "CalculateTextHeight.h"  // 计算lable文本高度 工具
+
+#import "Masonry.h"              // 第三方布局类
+
+#import "UIImageView+WebCache.h" // 网络加载图片
+
+#import "MJRefresh.h"            // MJ 刷新控件
+
+#endif /* PrefixHeader_pch */

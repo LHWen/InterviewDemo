@@ -1,0 +1,37 @@
+PODS:
+  - FLAnimatedImage (1.0.12)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
+  - Masonry (1.0.2)
+  - MJRefresh (3.1.12)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
+  - SDWebImage/GIF (4.1.0):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
+  - SVProgressHUD (2.2.1)
+  - UINavigationBar+Addition (1.3.0)
+
+DEPENDENCIES:
+  - FMDB
+  - Masonry
+  - MJRefresh
+  - SDWebImage
+  - SDWebImage/GIF
+  - SVProgressHUD
+  - UINavigationBar+Addition
+
+SPEC CHECKSUMS:
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+  UINavigationBar+Addition: 433c16a992cfb73c3141b1f7fcaa93169c15cfa0
+
+PODFILE CHECKSUM: 1e2e97a8a91bdcc7ca69c14fb71d1a08b86b0a38
+
+COCOAPODS: 1.2.1
