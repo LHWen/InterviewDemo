@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		14A4332B9CCC60E5E4E4A3AD /* Pods_BaseProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08945CB1E7BE351B13475DF0 /* Pods_BaseProduct.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		6182BE8021A52E5000E09F9B /* QuestionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182BE7F21A52E5000E09F9B /* QuestionListViewController.m */; };
+		6182BE8421A5335C00E09F9B /* KVCAndKVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182BE8321A5335C00E09F9B /* KVCAndKVOViewController.m */; };
+		6182BE8721A5338300E09F9B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182BE8621A5338300E09F9B /* Person.m */; };
 		619C6A501F95F04400659FB9 /* CreateViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 619C6A4F1F95F04400659FB9 /* CreateViewFactory.m */; };
 		619C6A531F95F0A500659FB9 /* SVPShowAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619C6A521F95F0A500659FB9 /* SVPShowAlertView.m */; };
 		619C6A591F95F41800659FB9 /* UserDefaultsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 619C6A581F95F41800659FB9 /* UserDefaultsHelper.m */; };
@@ -25,7 +28,6 @@
 		61B3460D2092C31400230718 /* EquipmentModelUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B3460C2092C31400230718 /* EquipmentModelUtility.m */; };
 		61B346102092C35E00230718 /* ActivityViewTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B3460F2092C35E00230718 /* ActivityViewTool.m */; };
 		61F8C9C01F95E380006AEA76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9BF1F95E380006AEA76 /* AppDelegate.m */; };
-		61F8C9C31F95E380006AEA76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9C21F95E380006AEA76 /* ViewController.m */; };
 		61F8C9C61F95E380006AEA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61F8C9C41F95E380006AEA76 /* Main.storyboard */; };
 		61F8C9C81F95E380006AEA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F8C9C71F95E380006AEA76 /* Assets.xcassets */; };
 		61F8C9CB1F95E380006AEA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61F8C9C91F95E380006AEA76 /* LaunchScreen.storyboard */; };
@@ -49,6 +51,13 @@
 /* Begin PBXFileReference section */
 		08945CB1E7BE351B13475DF0 /* Pods_BaseProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		374A298DAEA452CDA242657B /* Pods-BaseProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProduct/Pods-BaseProduct.release.xcconfig"; sourceTree = "<group>"; };
+		6182BE7D21A5068500E09F9B /* InterviewQuestions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterviewQuestions.h; sourceTree = "<group>"; };
+		6182BE7E21A52E5000E09F9B /* QuestionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionListViewController.h; sourceTree = "<group>"; };
+		6182BE7F21A52E5000E09F9B /* QuestionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionListViewController.m; sourceTree = "<group>"; };
+		6182BE8221A5335C00E09F9B /* KVCAndKVOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVCAndKVOViewController.h; sourceTree = "<group>"; };
+		6182BE8321A5335C00E09F9B /* KVCAndKVOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVCAndKVOViewController.m; sourceTree = "<group>"; };
+		6182BE8521A5338300E09F9B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		6182BE8621A5338300E09F9B /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		619C6A4E1F95F04400659FB9 /* CreateViewFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateViewFactory.h; sourceTree = "<group>"; };
 		619C6A4F1F95F04400659FB9 /* CreateViewFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateViewFactory.m; sourceTree = "<group>"; };
 		619C6A511F95F0A500659FB9 /* SVPShowAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVPShowAlertView.h; sourceTree = "<group>"; };
@@ -90,8 +99,6 @@
 		61F8C9BB1F95E380006AEA76 /* InterviewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterviewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F8C9BE1F95E380006AEA76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		61F8C9BF1F95E380006AEA76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		61F8C9C11F95E380006AEA76 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		61F8C9C21F95E380006AEA76 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		61F8C9C51F95E380006AEA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61F8C9C71F95E380006AEA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61F8C9CA1F95E380006AEA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -136,6 +143,17 @@
 				374A298DAEA452CDA242657B /* Pods-BaseProduct.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6182BE8121A5334400E09F9B /* KVCAndKVO */ = {
+			isa = PBXGroup;
+			children = (
+				6182BE8221A5335C00E09F9B /* KVCAndKVOViewController.h */,
+				6182BE8321A5335C00E09F9B /* KVCAndKVOViewController.m */,
+				6182BE8521A5338300E09F9B /* Person.h */,
+				6182BE8621A5338300E09F9B /* Person.m */,
+			);
+			path = KVCAndKVO;
 			sourceTree = "<group>";
 		};
 		619C6A561F95F3F300659FB9 /* BaseTools */ = {
@@ -198,13 +216,15 @@
 		61F8C9BD1F95E380006AEA76 /* InterviewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6182BE8121A5334400E09F9B /* KVCAndKVO */,
 				61F8C9E81F95E52F006AEA76 /* PCH */,
 				61F8C9E21F95E52F006AEA76 /* Base */,
 				61F8C9E71F95E52F006AEA76 /* Tools */,
 				61F8C9BE1F95E380006AEA76 /* AppDelegate.h */,
 				61F8C9BF1F95E380006AEA76 /* AppDelegate.m */,
-				61F8C9C11F95E380006AEA76 /* ViewController.h */,
-				61F8C9C21F95E380006AEA76 /* ViewController.m */,
+				6182BE7D21A5068500E09F9B /* InterviewQuestions.h */,
+				6182BE7E21A52E5000E09F9B /* QuestionListViewController.h */,
+				6182BE7F21A52E5000E09F9B /* QuestionListViewController.m */,
 				61F8C9C41F95E380006AEA76 /* Main.storyboard */,
 				61F8C9C71F95E380006AEA76 /* Assets.xcassets */,
 				61F8C9C91F95E380006AEA76 /* LaunchScreen.storyboard */,
@@ -453,9 +473,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6182BE8021A52E5000E09F9B /* QuestionListViewController.m in Sources */,
 				619C6A811F96082D00659FB9 /* SQLiteHelper.m in Sources */,
 				619C6A801F96082700659FB9 /* SQLiteDaoHelper.m in Sources */,
-				61F8C9C31F95E380006AEA76 /* ViewController.m in Sources */,
 				61B346102092C35E00230718 /* ActivityViewTool.m in Sources */,
 				61F8C9F21F95EAC8006AEA76 /* BaseViewController.m in Sources */,
 				619C6A531F95F0A500659FB9 /* SVPShowAlertView.m in Sources */,
@@ -469,7 +489,9 @@
 				619C6A631F95F69100659FB9 /* NSString+Utils.m in Sources */,
 				619C6A501F95F04400659FB9 /* CreateViewFactory.m in Sources */,
 				61F8C9EC1F95E7D2006AEA76 /* BaseModel.m in Sources */,
+				6182BE8421A5335C00E09F9B /* KVCAndKVOViewController.m in Sources */,
 				61F8C9C01F95E380006AEA76 /* AppDelegate.m in Sources */,
+				6182BE8721A5338300E09F9B /* Person.m in Sources */,
 				61B346072092C02D00230718 /* AttributedTextColorTool.m in Sources */,
 				619C6A691F95F8EF00659FB9 /* DateUtils.m in Sources */,
 				619C6A591F95F41800659FB9 /* UserDefaultsHelper.m in Sources */,

@@ -11,6 +11,7 @@
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
+#import "QuestionListViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,12 @@
     
     [self p_setupDB];
     [self initNavigationStyle];
+    
+    QuestionListViewController *vc = [[QuestionListViewController alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nvc;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
