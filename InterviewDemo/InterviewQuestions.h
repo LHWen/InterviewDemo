@@ -50,4 +50,32 @@
  
  */
 
+/**
+ * 问题：GCD死锁问题？
+ 
+ 简单的说，在同一线程中出现并行线程，出现相互等待，导致死锁。
+ 比如：主队列中出现任务A(并行), 任务B(串行), 由于任务A是并行的，主队列在等待任务A执行完成再执行任务B，而任务A在等待主队列执行它，相互等待导致死锁。
+ */
+
+/**
+ * 问题：iOS 数据缓存问题（机制、路径、原理）？
+ 
+ 数据缓存要求：固定数据、偶尔更新的数据（这类数据需要定时更新缓存以确保数据及时性）
+ 1、使用App应用的沙盒机制进行数据缓存，目录放在Library/Caches下，iTunes不会备份此路径下的目录。
+ 2、使用FMDB等第三方数据库进行数据缓存。
+ */
+
+/**
+ * 问题：Masonry布局实现原理？
+ 
+ AutoLayout 布局的封装
+ Masonry的本质其实就是通过链式的语法将一个一个约束关系记录下来，
+ 然后通过创建一个一个NSLayoutConstraint对象进行布局约束.
+ Masonry的主要流程其实就是每个view提供给用户一个MASConstraintMaker对象，
+ 让用户不断在MASConstraintMaker对象上添加一个一个MASConstraint的约束结构，
+ 最后将所有的MASConstraint转化成一个一个NSLayoutConstraint对象添加在相应的view上面.
+ 
+ */
+
+
 #endif /* InterviewQuestions_h */
