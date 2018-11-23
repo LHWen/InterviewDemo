@@ -9,28 +9,75 @@
 #import "KVCAndKVOViewController.h"
 #import "Person.h"
 
+#import "VerifyView.h"
+
 @interface KVCAndKVOViewController ()
 
 @property (nonatomic, strong) Person *kvoPerson;
+@property (nonatomic, strong) VerifyView *verifyView;
 
 @end
 
 @implementation KVCAndKVOViewController
+
+- (VerifyView *)verifyView {
+    
+    if (!_verifyView) {
+        _verifyView = [[VerifyView alloc] init];
+        _verifyView.backgroundColor = [UIColor yellowColor];
+        [self.view addSubview:_verifyView];
+        [_verifyView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.equalTo(self.view);
+            make.height.equalTo(@200.0f);
+        }];
+    }
+    return _verifyView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor orangeColor];
     
-    [self testKVCFunction];
-    [self testKVOFunction];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:@"KVOChange" forState:UIControlStateNormal];
-    [button setBackgroundColor:[UIColor redColor]];
-    [button addTarget:self action:@selector(cilckChangValue:) forControlEvents:UIControlEventTouchUpInside];
-    button.frame = CGRectMake(20, 40, 200, 44);
-    [self.view addSubview:button];
+    // 测试懒加载视图跟创建好视图 setter值
+    UIButton *but1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [but1 setTitle:@"懒加载视图" forState:UIControlStateNormal];
+    [but1 setBackgroundColor:[UIColor redColor]];
+    [but1 addTarget:self action:@selector(cilckChangValueLayzer:) forControlEvents:UIControlEventTouchUpInside];
+    but1.frame = CGRectMake(20, 240, 200, 44);
+    [self.view addSubview:but1];
+    
+    UIButton *but2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [but2 setTitle:@"先创建视图setter赋值" forState:UIControlStateNormal];
+    [but2 setBackgroundColor:[UIColor redColor]];
+    [but2 addTarget:self action:@selector(cilckChangValueSetter:) forControlEvents:UIControlEventTouchUpInside];
+    but2.frame = CGRectMake(20, 300, 200, 44);
+    [self.view addSubview:but2];
+    
+    
+    
+//    [self testKVCFunction];
+//    [self testKVOFunction];
+//
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [button setTitle:@"KVOChange" forState:UIControlStateNormal];
+//    [button setBackgroundColor:[UIColor redColor]];
+//    [button addTarget:self action:@selector(cilckChangValue:) forControlEvents:UIControlEventTouchUpInside];
+//    button.frame = CGRectMake(20, 40, 200, 44);
+//    [self.view addSubview:button];
+}
+
+- (void)cilckChangValueLayzer:(UIButton *)sender {
+    
+    // 两种方法都可行，实现视图懒加载
+    self.verifyView.value1 = @"懒加载视图加载,使用setter方法进行懒加载";
+    
+//    self.verifyView.valueLbl1.text = @"视图直接懒加载";
+}
+
+- (void)cilckChangValueSetter:(UIButton *)sender {
+    self.verifyView.value2 = @"视图先创建了进行setter赋值刷新";
 }
 
 // KVC

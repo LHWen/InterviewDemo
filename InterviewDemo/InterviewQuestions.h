@@ -216,5 +216,136 @@
 
  */
 
+/**
+ * 问题：设计模式有哪些？
+ 
+ 1). MVC模式：Model View Control，把模型 视图 控制器 层进行解耦合编写。
+ 2). MVVM模式：Model View ViewModel 把模型 视图 业务逻辑 层进行解耦和编写。
+ 3). 单例模式：通过static关键词，声明全局变量。在整个进程运行期间只会被赋值一次。
+ 4). 观察者模式：KVO是典型的通知模式，观察某个属性的状态，状态发生变化时通知观察者。
+ 5). 委托模式：代理+协议的组合。实现1对1的反向传值操作。
+ 6). 工厂模式：通过一个类方法，批量的根据已有模板生产对象。
+ */
+
+/**
+ * 问题：#import与#include有什么区别？@class作用？#import<> 与 #import""有什么区别？
+ 
+ 1、#import是Objective-C导入头文件的关键字，#include是C/C++导入头文件的关键字；使用#import头文件会自动导入一次，不会重复导入
+ 2、@class告诉编辑器某个类的向前声明，当执行该类时才去查看累的实现文件，可解决头文件的相互包含
+ 3、#import<>用来包含系统的头文件，#import""用来包含用户头文件
+ */
+
+/**
+ * 问题：frame和boundsd有什么不同？
+ 
+ frame是指View在父视图坐标系统中w的位置，参考的是父视图的坐标系
+ bounds是指View在本身视图坐标系统中的位置，参考self.view
+ */
+
+/**
+ * 问题：Objectiv-C的类可以多重继承吗？可以实现多个接口吗？Category是什么？重写一个类的方式用继承还是分类好？为什么？
+ 
+ Objectiv-C的类不可以多重继承
+ 可以实现多个接口协议
+ category是类别
+ 一般情况下用分类号，用Category去重写类方法，仅对本Category有效，不会影响原有类的关系。
+ */
+
+/**
+ * 问题：怎么用 copy 关键字？
+ 
+ NSString、NSArray、NSDictionary等经常使用copy关键字，是因为他们有对应的可变类型：NSMutableString、NSMutableArray、NSMutableDictionary；
+ block 也经常使用 copy 关键字（block在栈空间上，随时都可能被释放，使用copy将block拷贝到堆上）。
+ */
+
+/**
+ * 问题：用@property声明的 NSString / NSArray / NSDictionary 经常使用 copy 关键字，为什么？如果改用strong关键字，可能造成什么问题？
+ 
+ 用 @property 声明 NSString、NSArray、NSDictionary 经常使用 copy 关键字，
+ 是因为他们有对应的可变类型：NSMutableString、NSMutableArray、NSMutableDictionary，
+ 他们之间可能进行赋值操作（就是把可变的赋值给不可变的），为确保对象中的字符串值不会无意间变动，应该在设置新属性值时拷贝一份。
+ 1.因为父类指针可以指向子类对象,使用 copy 的目的是为了让本对象的属性不受外界影响,
+   使用 copy 无论给我传入是一个可变对象还是不可对象,我本身持有的就是一个不可变的副本。
+ 2.如果我们使用是 strong ,那么这个属性就有可能指向一个可变对象,如果这个可变对象在外部被修改了,那么会影响该属性。
+ 
+ copy来修饰NSMutable*** 时 在添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃。，因为copy复制一个不可变对象，可变——>不可变
+ 
+ 总结：使用copy的目的是，防止把可变类型的对象赋值给不可变类型的对象时，可变类型对象的值发送变化会无意间篡改不可变类型对象原来的值。
+ */
+
+/**
+ * 问题：浅拷贝和深拷贝的区别？
+ 
+ 浅拷贝：只复制指向对象的指针，而不复制引用对象本身。
+ 深拷贝：复制引用对象本身。内存中存在了两份独立对象本身，当修改A时，A_copy不变。
+ */
+
+/**
+ * 问题：系统对象的copy与mutableCopy方法有什么不同？
+ 
+ 1、copy 返回的是不可变对象（immutableObject）；如果用copy返回值调用mutable对象的方法就会crash。
+ 2、mutableCopy 返回的是可变对象（mutableObject）。
+ 只有对不可变对象进行copy操作是指针复制（浅copy），其它情况都是内容复制（深copy）！
+ */
+
+/**
+ * 问题：这个写法会出什么问题：@property (nonatomic, copy) NSMutableArray *arr;？
+ 
+ 添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃。
+ 如：-[__NSArrayI removeObjectAtIndex:]: unrecognized selector sent to instance 0x7fcd1bc30460
+ copy后返回的是不可变对象（即arr 是 NSArray 类型，NSArray 类型对象不能调用 NSMutableArray 类型对象的方法）
+ 
+ 原因：是因为 copy 就是复制一个不可变 NSArray 的对象，不能对 NSArray 对象进行添加/修改。
+ */
+
+/**
+ * 问题：如何让自己的类用 copy 修饰符？如何重写带 copy 关键字的 setter？
+ 
+ 若想令自己所写的对象具有拷贝功能，则需实现 NSCopying 协议。如果自定义的对象分为可变版本与不可变版本，那么就要同时实现 NSCopying 与 NSMutableCopying 协议。
+ 具体步骤：
+ 1. 需声明该类遵从 NSCopying 协议
+ 2. 实现 NSCopying 协议的方法。
+ 该协议只有一个方法:
+ - (id)copyWithZone:(NSZone *)zone;
+ 注意：使用 copy 修饰符，调用的是copy方法，其实真正需要实现的是 “copyWithZone” 方法。
+ */
+
+/**
+ * 问题：id 声明的对象有什么特性？
+ 
+ id 声明的对象具有运行时的特性，即可以指向任意类型的Objcetive-C的对象。
+ */
+
+/**
+ * 问题：Category（类别）、 Extension（扩展）和继承的区别?
+ 
+ 分类有名字，类扩展没有分类名字，是一种特殊的分类。
+ 分类只能扩展方法（属性仅仅是声明，并没真正实现），类扩展可以扩展属性、成员变量和方法。
+ 继承可以增加，修改或者删除方法，并且可以增加属性。
+ */
+
+/**
+ * 问题：ViewController生命周期
+ 
+ 按照执行顺序排列：
+ initWithCoder：通过nib文件初始化时触发。
+ awakeFromNib：nib文件被加载的时候，会发生一个awakeFromNib的消息到nib文件中的每个对象。
+ loadView：开始加载视图控制器自带的view。
+ viewDidLoad：视图控制器的view被加载完成。
+ viewWillAppear：视图控制器的view将要显示在window上。
+ updateViewConstraints：视图控制器的view开始更新AutoLayout约束。
+ viewWillLayoutSubviews：视图控制器的view将要更新内容视图的位置。
+ viewDidLayoutSubviews：视图控制器的view已经更新视图的位置。
+ viewDidAppear：视图控制器的view已经展示到window上。
+ viewWillDisappear：视图控制器的view将要从window上消失。
+ viewDidDisappear：视图控制器的view已经从window上消失。
+ */
+
+/**
+ * 问题：如何对iOS设备进行性能测试？开发项目时怎么检查内存泄露？
+ 
+ 性能测试：Profile-> Instruments ->Time Profiler
+ 检查内存泄漏：1). 静态分析analyze。 2). instruments工具里面有个leak可以动态分析。
+ */
 
 #endif /* InterviewQuestions_h */
