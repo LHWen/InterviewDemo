@@ -9,6 +9,7 @@
 #import "QuestionListViewController.h"
 
 #import "KVCAndKVOViewController.h"
+#import "ISAObjectViewController.h" // isa 指针
 
 @interface QuestionListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -47,7 +48,7 @@
     
     self.navigationItem.title = @"问题实践列表";
     
-    _dataArr = @[@"KVC与KVO实现原理"];
+    _dataArr = @[@"KVC与KVO实现原理", @"isa指针"];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -86,7 +87,12 @@
             KVCAndKVOViewController *vc = [[KVCAndKVOViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
-        }            
+        }
+        case 1:{
+            ISAObjectViewController *vc = [[ISAObjectViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
             
         default:
             break;

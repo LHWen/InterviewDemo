@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14A4332B9CCC60E5E4E4A3AD /* Pods_BaseProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08945CB1E7BE351B13475DF0 /* Pods_BaseProduct.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6100B6D721A7FA580006B9D4 /* VerifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6100B6D621A7FA580006B9D4 /* VerifyView.m */; };
+		61447B8321ABC73200607852 /* ISAObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61447B8221ABC73200607852 /* ISAObjectViewController.m */; };
 		6182BE8021A52E5000E09F9B /* QuestionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182BE7F21A52E5000E09F9B /* QuestionListViewController.m */; };
 		6182BE8421A5335C00E09F9B /* KVCAndKVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182BE8321A5335C00E09F9B /* KVCAndKVOViewController.m */; };
 		6182BE8721A5338300E09F9B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6182BE8621A5338300E09F9B /* Person.m */; };
@@ -54,6 +55,8 @@
 		374A298DAEA452CDA242657B /* Pods-BaseProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProduct/Pods-BaseProduct.release.xcconfig"; sourceTree = "<group>"; };
 		6100B6D521A7FA580006B9D4 /* VerifyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyView.h; sourceTree = "<group>"; };
 		6100B6D621A7FA580006B9D4 /* VerifyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VerifyView.m; sourceTree = "<group>"; };
+		61447B8121ABC73200607852 /* ISAObjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISAObjectViewController.h; sourceTree = "<group>"; };
+		61447B8221ABC73200607852 /* ISAObjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISAObjectViewController.m; sourceTree = "<group>"; };
 		6182BE7D21A5068500E09F9B /* InterviewQuestions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterviewQuestions.h; sourceTree = "<group>"; };
 		6182BE7E21A52E5000E09F9B /* QuestionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionListViewController.h; sourceTree = "<group>"; };
 		6182BE7F21A52E5000E09F9B /* QuestionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionListViewController.m; sourceTree = "<group>"; };
@@ -148,6 +151,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		61447B8021ABC71800607852 /* isa-Object */ = {
+			isa = PBXGroup;
+			children = (
+				61447B8121ABC73200607852 /* ISAObjectViewController.h */,
+				61447B8221ABC73200607852 /* ISAObjectViewController.m */,
+			);
+			path = "isa-Object";
+			sourceTree = "<group>";
+		};
 		6182BE8121A5334400E09F9B /* KVCAndKVO */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +233,7 @@
 		61F8C9BD1F95E380006AEA76 /* InterviewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				61447B8021ABC71800607852 /* isa-Object */,
 				6182BE8121A5334400E09F9B /* KVCAndKVO */,
 				61F8C9E81F95E52F006AEA76 /* PCH */,
 				61F8C9E21F95E52F006AEA76 /* Base */,
@@ -491,6 +504,7 @@
 				6100B6D721A7FA580006B9D4 /* VerifyView.m in Sources */,
 				619C6A6C1F95FBDA00659FB9 /* CalculateTextHeight.m in Sources */,
 				61F8C9CE1F95E380006AEA76 /* main.m in Sources */,
+				61447B8321ABC73200607852 /* ISAObjectViewController.m in Sources */,
 				61F8C9EF1F95E84D006AEA76 /* BaseOperation.m in Sources */,
 				619C6A631F95F69100659FB9 /* NSString+Utils.m in Sources */,
 				619C6A501F95F04400659FB9 /* CreateViewFactory.m in Sources */,
