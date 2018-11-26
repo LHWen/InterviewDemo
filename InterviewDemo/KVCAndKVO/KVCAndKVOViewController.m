@@ -55,7 +55,7 @@
     but2.frame = CGRectMake(20, 300, 200, 44);
     [self.view addSubview:but2];
     
-    
+    /** 以下放开注释是 KVC KVO 内容 */
     
 //    [self testKVCFunction];
 //    [self testKVOFunction];
