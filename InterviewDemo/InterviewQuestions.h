@@ -81,7 +81,7 @@
  
  1、沙盒
  2、plist文件
- 3、Preference ->NSUserDefaults 本地存储
+ 3、Preference -> NSUserDefaults 本地存储
  4、NSKeyedArchiver 归档在iOS中是另一种形式的序列化，只要遵循了NSCoding协议的对象都可以通过它实现序列化。
  由于决大多数支持存储数据的Foundation和Cocoa Touch类都遵循了NSCoding协议，因此，对于大多数类来说，归档相对而言还是比较容易实现的
  5、FMDB
@@ -163,7 +163,7 @@
  Dictionaries:存储键/值对，用index快速查找。
  Sets: 无序的值列表。通过值快速查找，insert/delete快。
  
- 8、重用和延迟加载视图
+ 8、重用和延迟加载视图（懒加载）
  
  9、缓存
  固定数据、偶尔更新的数据、cell高度（在接收到数据时进行高度计算，保存到数据model中）
@@ -174,7 +174,7 @@
  当系统内存低的时候iOS会通知所有的正在运行的app。
  如果你的应用收到这个警告，它必须尽可能多的释放内存。最好的方法是移除对缓存，图像对象，和其他稍后要创建的对象的强引用。
  
- 12、重用大开销对象
+ 12、重用大开销对象 比如: NSDateFormatter和NSCalendar(日历📅)
  
  13、使用JSONKit （速度快，速度比NSJSONSerialization快上25% to 40%）
  
