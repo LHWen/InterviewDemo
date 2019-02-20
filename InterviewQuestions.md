@@ -75,7 +75,7 @@ strong与copy都会使引用计数加1，strong的两个指针指向同一内存
 
 _ block是用来修饰一个变量，这个变量就可以在block中被修改。_ block：使用 
 _ block修饰的变量在 block代码块中会被retain（ARC下会retain，MRC下不会retain）
-_ _weak：使用_ _ _weak修饰的变量不会在block代码块中被retain。
+_ _weak：使用 _ _weak修饰的变量不会在block代码块中被retain。
 在ARC下，要避免block出现循环引用 使用 weak来代替self调用定义的全局属性； _ _weak typedof(self)weakSelf = self。
 
 #### 12. block变量定义时为什么用copy？block是放在哪里的？
@@ -90,43 +90,43 @@ _ _weak：使用_ _ _weak修饰的变量不会在block代码块中被retain。
 
 使用Instruments分析代码，检查代码需要提高的地方。
 
-**1)** 使用ARC管理内存
-**2) **适当地方使用reuseIdentifier (重用标识)
+**1**) 使用ARC管理内存
+**2**) 适当地方使用reuseIdentifier (重用标识)
 常见的为UITableViewCells，UICollectionViewCells，UITableViewHeaderFooterViews设置一个正确的reuseIdentifier(重用标识)。
  如果不用tableview每显示一行将会配置一个全新的cell。这是非常费事的操作而且绝对会影响你app滚动的性能。
-**3) **视图的透明尽可能不设置为透明，非得设置透明，背景色尽可能跟父视图颜色一致。
-**4) **避免臃肿的Xib文件，如果要使用，尽可能使之简单
+**3**) 视图的透明尽可能不设置为透明，非得设置透明，背景色尽可能跟父视图颜色一致。
+**4**) 避免臃肿的Xib文件，如果要使用，尽可能使之简单
  注意当加载一个Xib到内存的时候，它所有的内容都会载入内存，包括所有的图片。如果有视图但不是要立即使用，那就浪费了珍贵的内存。
-**5) **不要阻塞主线程
+**5**) 不要阻塞主线程
 UIKIt的所有工作都在主线程中进行，比如绘画，管理触摸，和响应输出，大多数阻塞主线程的是App进行网络请求跟读写外部资源，这些都可以使用异步处理。
-**6) **调整图像在视图中的的图像尺寸
+**6**) 调整图像在视图中的的图像尺寸
 如果你用UIImageView呈现app束中的图片时，确认图片和UIImageView的尺寸相同。缩放图片会非常的耗时，特别是当你的UIImageView被嵌入UIScrollView。
 如果图片是从远程服务器上下载的，有时你没法控制图片尺寸，或者你不能在服务器上在下载之前缩放它。
 在这些情况下你可以在图片下载完成后手动缩放一次，最好是在后台进程中。然在UIImageView中使用调整尺寸之后的图片。
-**7) **选择正确集合
+**7**) 选择正确集合
 Arrays:有序的值列表，用index快速查找，通过值查找慢，insert/delete操作慢。
  Dictionaries:存储键/值对，用index快速查找。
 Sets: 无序的值列表。通过值快速查找，insert/delete快。
-**8) **重用和延迟加载视图（懒加载）
-**9) **缓存
+**8**) 重用和延迟加载视图（懒加载）
+**9**) 缓存
 固定数据、偶尔更新的数据、cell高度（在接收到数据时进行高度计算，保存到数据model中）
-**10) **考虑绘图
-**11) **处理内存警告
+**10**) 考虑绘图
+**11**) 处理内存警告
 当系统内存低的时候iOS会通知所有的正在运行的app。
 如果你的应用收到这个警告，它必须尽可能多的释放内存。最好的方法是移除对缓存，图像对象，和其他稍后要创建的对象的强引用。
-**12) **重用大开销对象 比如: NSDateFormatter和NSCalendar(日历📅)
-**13) **使用JSONKit （速度快，速度比NSJSONSerialization快上25% to 40%）
-**14) **适当的设置背景图片
+**12**) 重用大开销对象 比如: NSDateFormatter和NSCalendar(日历📅)
+**13**) 使用JSONKit （速度快，速度比NSJSONSerialization快上25% to 40%）
+**14**) 适当的设置背景图片
 你可以设置你的视图的背景颜色为UIColor的colorWithPatternImage创建的颜色。
 你可以添加一个UIImageView子试图给View 。
 如果你有全尺寸的背景图片，你绝对要用UIImageView，因为UIColor的colorWithPatternImage是重复的创建小的模式图片，
 在这种情况下用UIImageView方式会节约很多内存。
-**15) **减小网络占用
+**15**) 减小网络占用
 所以为了获得最佳的性能，你需要调整你的HTML。第一件事是尽可能多的避免JavaScript，包括避免大的框架比如jQuery。
-**16) **设置阴影路径，减少阴影属性设置（shadowOffset）
+**16**) 设置阴影路径，减少阴影属性设置（shadowOffset）
 设置阴影路径，iOS不需要总是计算如何绘制阴影。而是用已经计算好的的路径。
 坏消息是它依赖与你的视图格式，你是视图可能很难计算这个路径。另一个问题是你需要在每次视图的框架改变时更新阴影路径
-**17) **表格视图优化
+**17**) 表格视图优化
 通过正确的reuseIdentifier重用cells
 尽量多的设置views 为不透明，包括cell本身。
 避免渐变，图像缩放，屏幕以外的绘制。
@@ -137,14 +137,14 @@ Sets: 无序的值列表。通过值快速查找，insert/delete快。
 cellForRowAtIndexPath:中做尽量少的工作，如果需要做相同的工作，那么只做一次并缓存结果。
 使用适当的数据结构存储你要的信息，不同的结构有对于不同的操作有不同的代价。
 使用rowHeight，sectionFooterHeight，sectionHeaderHeight为常数，而不是询问代理。
-**18) **选择正确的数据存储方式
+**18**) 选择正确的数据存储方式
 使用 NSUserDefaults存储bool值或者简单的数据
 存储在结构化文件中，XML，JSON，Plist格式中
 沙盒
 归档
  FMDB
-**19) **加速启动时间
-**20) **缓存图片
+**19**) 加速启动时间
+**20**) 缓存图片
 
 ##### 14. 设计模式有哪些？
 
@@ -202,7 +202,7 @@ copy来修饰NSMutable *** 时 在添加,删除，修改数组内的元素的时
 添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃。
 如：-[__NSArrayI removeObjectAtIndex:]: unrecognized selector sent to instance 0x7fcd1bc30460
 copy后返回的是不可变对象（即arr 是 NSArray 类型，NSArray 类型对象不能调用 NSMutableArray 类型对象的方法）
-**原因：**是因为 copy 就是复制一个不可变 NSArray 的对象，不能对 NSArray 对象进行添加/修改。
+**原因**：是因为 copy 就是复制一个不可变 NSArray 的对象，不能对 NSArray 对象进行添加/修改。
 
 ##### 23. 如何让自己的类用 copy 修饰符？如何重写带 copy 关键字的 setter？
 
@@ -215,7 +215,7 @@ copy后返回的是不可变对象（即arr 是 NSArray 类型，NSArray 类型�
 
 - (id)copyWithZone:(NSZone *)zone;
 
- **注意：**使用 copy 修饰符，调用的是copy方法，其实真正需要实现的是 “copyWithZone” 方法。
+ **注意**：使用 copy 修饰符，调用的是copy方法，其实真正需要实现的是 “copyWithZone” 方法。
 
 ##### 24. id 声明的对象有什么特性？
 
@@ -230,17 +230,17 @@ copy后返回的是不可变对象（即arr 是 NSArray 类型，NSArray 类型�
 ##### 26. ViewController生命周期
 
 按照执行顺序排列：
-**initWithCoder：**通过nib文件初始化时触发。
-**awakeFromNib：**nib文件被加载的时候，会发生一个awakeFromNib的消息到nib文件中的每个对象。
-**loadView：**开始加载视图控制器自带的view。
-**viewDidLoad：**视图控制器的view被加载完成。
-**viewWillAppear：**视图控制器的view将要显示在window上。
-**updateViewConstraints：**视图控制器的view开始更新AutoLayout约束。
+**initWithCoder**：通过nib文件初始化时触发。
+**awakeFromNib**：nib文件被加载的时候，会发生一个awakeFromNib的消息到nib文件中的每个对象。
+**loadView**：开始加载视图控制器自带的view。
+**viewDidLoad**：视图控制器的view被加载完成。
+**viewWillAppear**：视图控制器的view将要显示在window上。
+**updateViewConstraints**：视图控制器的view开始更新AutoLayout约束。
 **viewWillLayoutSubviews**：视图控制器的view将要更新内容视图的位置。
-**viewDidLayoutSubviews：**视图控制器的view已经更新视图的位置。
-**viewDidAppear：**视图控制器的view已经展示到window上。
-**viewWillDisappear：**视图控制器的view将要从window上消失。
-**viewDidDisappear：**视图控制器的view已经从window上消失。
+**viewDidLayoutSubviews**：视图控制器的view已经更新视图的位置。
+**viewDidAppear**：视图控制器的view已经展示到window上。
+**viewWillDisappear**：视图控制器的view将要从window上消失。
+**viewDidDisappear**：视图控制器的view已经从window上消失。
 
 ##### 27. 如何对iOS设备进行性能测试？开发项目时怎么检查内存泄露？
 
